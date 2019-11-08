@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.net.URL;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -41,6 +42,7 @@ public class HtmlToPdfApplication {
 		/* first, get and initialize an engine */
 		VelocityEngine ve = new VelocityEngine();
 
+//		URL r = new URL("https://sensoriamento-bb.dev-cld.brasilseg.com.br/static/media/logo-bbseg.7d48e313.svg");
 		/* next, get the Template */
 		ve.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
 		ve.setProperty("classpath.resource.loader.class",
@@ -56,7 +58,7 @@ public class HtmlToPdfApplication {
 		/* show the World */
 		System.out.println(writer.toString());
 		
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ByteArrayOutputStream baos;
 
 		baos = generatePdf(writer.toString());
 
@@ -66,9 +68,10 @@ public class HtmlToPdfApplication {
 	                   "attachment; filename=" + fileName.replace(" ", "_"));
 	    header.setContentLength(baos.toByteArray().length);
 
-	    return new HttpEntity<byte[]>(baos.toByteArray(), header);
+	    return new HttpEntity<>(baos.toByteArray(), header);
 
 	}
+
 
 	public ByteArrayOutputStream generatePdf(String html) {
 

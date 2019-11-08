@@ -3,5 +3,22 @@
 <body>
 Hello <b>$name!</b>  Welcome to Velocity!
 <h1> Hello User</h1>
+<canvas id="canvas" width=400 height=400></canvas>
+<img height="100" width="100" src="https://sensoriamento-frontend.hml-cld.brasilseg.com.br/static/media/sad-icon.4be913cb.svg" id="image"/>
+##<img src="https://sensoriamento-bb.dev-cld.brasilseg.com.br/static/media/logo-bbseg.7d48e313.svg" crossorigin="*"/>
+##<img src="https://sensoriamento-bb.dev-cld.brasilseg.com.br/static/media/logo-bbseg.7d48e313.svg" crossorigin="Anonymous"/>
+##<img src="https://sensoriamento-bb.dev-cld.brasilseg.com.br/static/media/logo-bbseg.7d48e313.svg" crossorigin="use-credentials"/>
+<img height="100" width="100" src="https://yt3.ggpht.com/a/AGF-l7_PBh_q3EXLPoYSkDDpy-pi3PWejcHqrdkpIw=s900-c-k-c0xffffffff-no-rj-mo"/>
+<img src="http://static-indicacao-dev.preventsenior.com.br/assets_select_person.68dcd76dab33107d9a96f5ad40c9b9e4.png"/>
 </body>
+<script>
+    function draw() {
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        var img = new Image();
+        img.crossOrigin = "Anonymous"
+        img.src = document.getElementById("image").src;
+        context.drawImage(img, 40, 40);
+    }
+</script>
 </html>
